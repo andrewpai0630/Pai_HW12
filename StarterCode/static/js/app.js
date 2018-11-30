@@ -8,6 +8,7 @@
 // });
     
 // YOUR CODE HERE!
+var filteredDataSet = data;
 var tbody = d3.select("tbody");
 var dateTimeInput = d3.select("#datetime");
 var cityInput = d3.select("#city");
@@ -23,15 +24,16 @@ searchBtn.on("click", searchBtnClick);
 submitBtn.on("click", submitBtnClick);
 resetBtn.on("click", resetBtnClick);
 
-var filteredDataSet = data;
 
 function renderTable() {
+    var tbody = d3.select("tbody");
     tbody.innerHTML = "";
     console.log("rendering...")
 
     for(var i = 0; i < filteredDataSet.length; i++) {
         var data = filteredDataSet[i];
         var fields = Object.keys(data);
+        var tbody = d3.select("tbody");
         var row = tbody.insertRow(i);
         for(var j = 0; j < fields.length; j++) {
             var field = fields[i];
